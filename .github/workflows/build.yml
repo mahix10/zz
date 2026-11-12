@@ -33,10 +33,9 @@ jobs:
             "https://raw.githubusercontent.com/gradle/gradle/v8.1.1/gradle/wrapper/gradle-wrapper.jar" \
             -o gradle/wrapper/gradle-wrapper.jar
 
-      - name: Build debug APK
+- name: Build debug APK
         run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          java -jar gradle/wrapper/gradle-wrapper.jar assembleDebug --no-daemon --stacktrace
 
       - name: Show APK path
         run: find . -name "*.apk" -type f
